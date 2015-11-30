@@ -2,6 +2,7 @@
 *.log
 *.scala~
 *.sbt~
+.gitignore~
 
 # sbt specific
 .cache
