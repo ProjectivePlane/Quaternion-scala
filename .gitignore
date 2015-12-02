@@ -3,6 +3,7 @@
 *.scala~
 *.sbt~
 .gitignore~
+*.md~
 
 # sbt specific
 .cache

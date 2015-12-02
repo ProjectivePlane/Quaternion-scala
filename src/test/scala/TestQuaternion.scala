@@ -7,6 +7,7 @@ import quaternion._
 class TestQuaternion extends FunSuite with BeforeAndAfter{
       var zero:Quaternion=_
       var one:Quaternion=_
+      var two:Quaternion=_
       var minusOne:Quaternion=_
       var i:Quaternion=_
       var j:Quaternion=_
@@ -16,13 +17,18 @@ class TestQuaternion extends FunSuite with BeforeAndAfter{
       var c:Quaternion=_
       var d:Quaternion=_
       var aConjugate:Quaternion=_
+      var aUnit:Quaternion=_
       var bConjugate:Quaternion=_
+      var bUnit:Quaternion=_
       var cConjugate:Quaternion=_
+      var cUnit:Quaternion=_
       var dConjugate:Quaternion=_
+      var dUnit:Quaternion=_
       
       before{
 	zero=new Quaternion
 	one=new Quaternion(1)
+	two=new Quaternion(2)
 	minusOne=new Quaternion(-1)
 	i=new Quaternion(0,1)
 	j=new Quaternion(0,0,1)
@@ -32,6 +38,10 @@ class TestQuaternion extends FunSuite with BeforeAndAfter{
 	b=new Quaternion(5,4,3,2)
 	c=new Quaternion(5,5,5,5)
 	d=new Quaternion(-5,-3,-1,1)
+	aUnit=new Quaternion(0.0,0.2672612419124244,0.5345224838248488,0.8017837257372732)
+	bUnit=new Quaternion(0.6804138174397717,0.5443310539518174,0.408248290463863,0.2721655269759087)
+	cUnit=new Quaternion(0.5,0.5,0.5,0.5)
+	dUnit=new Quaternion(-0.8333333333333334,-0.5,-0.16666666666666666,0.16666666666666666)
 	aConjugate=new Quaternion(0,-1,-2,-3)
 	bConjugate=new Quaternion(5,-4,-3,-2)
 	cConjugate=new Quaternion(5,-5,-5,-5)
@@ -168,5 +178,41 @@ class TestQuaternion extends FunSuite with BeforeAndAfter{
 
       test("k/k"){
 	assert(k/k== one)
+      }
+
+      test("a.unit"){
+	assert(a.unit==aUnit)
+      }
+      
+      test("b.unit"){
+	assert(b.unit==bUnit)
+      }
+
+      test("c.unit"){
+	assert(c.unit==cUnit)
+      }
+
+      test("d.unit"){
+	assert(d.unit==dUnit)
+      }
+
+      test("zero.unit"){
+	assert(zero.unit==zero)
+      }
+
+      test("one.scalarMult(2)"){
+	assert(one.scalarMult(2)==two)
+      }
+
+      test("one.scalarMult(-1)"){
+	assert(one.scalarMult(-1)==minusOne)
+      }
+
+      test("zero.exp"){
+	assert(zero.exp==one)
+      }
+
+      test("one.log"){
+	assert(one.ln==zero)
       }
 }
