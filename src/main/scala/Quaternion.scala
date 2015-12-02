@@ -51,12 +51,6 @@ class Quaternion(rp:Double=0,ip:Double=0,jp:Double=0,kp:Double=0){
 	  var realComponent:Quaternion=new Quaternion(math.cos(vecComponentNorm))
 	  var intermediateQuaternion=realComponent+vecComponentUnit.scalarMult(math.sin(vecComponentNorm))
 	  var result:Quaternion=intermediateQuaternion.scalarMult(scalingFactor)
-	  println("scalingFactor = "+scalingFactor.toString)
-	  println("vecComponent = "+vecComponent.toString)
-	  println("vecComponentNorm = "+vecComponentNorm.toString)
-	  println("realComponent = "+realComponent.toString)
-	  println("intermediateQuaternion = "+intermediateQuaternion.toString)
-	  println("result = "+result.toString)
 	  result
       }
 
