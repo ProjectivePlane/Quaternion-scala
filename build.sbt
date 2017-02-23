@@ -2,6 +2,6 @@ name := "Quaternion"
 
 version := "1.0"
 
-scalaVersion := "2.10.3"
+scalaVersion := "2.12.1"
 
-libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.1" % "test"
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.0" % "test"
