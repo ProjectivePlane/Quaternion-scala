@@ -24,195 +24,236 @@ class TestQuaternion extends FunSuite with BeforeAndAfter{
       var cUnit:Quaternion=_
       var dConjugate:Quaternion=_
       var dUnit:Quaternion=_
-      
-      before{
-	zero=new Quaternion
-	one=new Quaternion(1)
-	two=new Quaternion(2)
-	minusOne=new Quaternion(-1)
-	i=new Quaternion(0,1)
-	j=new Quaternion(0,0,1)
-	k=new Quaternion(0,0,0,1)
+      var u:Quaternion=_
+      var v:Quaternion=_
+      var w:Quaternion=_
+      var ww:Quaternion=_
 
-	a=new Quaternion(0,1,2,3)
-	b=new Quaternion(5,4,3,2)
-	c=new Quaternion(5,5,5,5)
-	d=new Quaternion(-5,-3,-1,1)
-	aUnit=new Quaternion(0.0,0.2672612419124244,0.5345224838248488,0.8017837257372732)
-	bUnit=new Quaternion(0.6804138174397717,0.5443310539518174,0.408248290463863,0.2721655269759087)
-	cUnit=new Quaternion(0.5,0.5,0.5,0.5)
-	dUnit=new Quaternion(-0.8333333333333334,-0.5,-0.16666666666666666,0.16666666666666666)
-	aConjugate=new Quaternion(0,-1,-2,-3)
-	bConjugate=new Quaternion(5,-4,-3,-2)
-	cConjugate=new Quaternion(5,-5,-5,-5)
-	dConjugate=new Quaternion(-5,3,1,-1)
+      before{
+         //Named numbers
+	       zero=new Quaternion
+	       one=new Quaternion(1)
+	       two=new Quaternion(2)
+	       minusOne=new Quaternion(-1)
+	       i=new Quaternion(0,1)
+	       j=new Quaternion(0,0,1)
+	       k=new Quaternion(0,0,0,1)
+         //Miscellaneous variables
+	       a=new Quaternion(0,1,2,3)
+	       b=new Quaternion(5,4,3,2)
+	       c=new Quaternion(5,5,5,5)
+	       d=new Quaternion(-5,-3,-1,1)
+	       aUnit=new Quaternion(0.0,0.2672612419124244,0.5345224838248488,0.8017837257372732)
+	       bUnit=new Quaternion(0.6804138174397717,0.5443310539518174,0.408248290463863,0.2721655269759087)
+	       cUnit=new Quaternion(0.5,0.5,0.5,0.5)
+	       dUnit=new Quaternion(-0.8333333333333334,-0.5,-0.16666666666666666,0.16666666666666666)
+	       aConjugate=new Quaternion(0,-1,-2,-3)
+	       bConjugate=new Quaternion(5,-4,-3,-2)
+	       cConjugate=new Quaternion(5,-5,-5,-5)
+	       dConjugate=new Quaternion(-5,3,1,-1)
+         u=new Quaternion
+         v=new Quaternion
+         w=new Quaternion
+         ww=new Quaternion
       }
 
       test("zero.toString"){
-	assert(zero.toString=="(0.0,0.0,0.0,0.0)")
+	       assert(zero.toString=="(0.0,0.0,0.0,0.0)")
       }
 
       test("zero+one"){
-	assert(zero+one==one)
+	       assert(zero+one==one)
       }
 
       test("a+b==c"){
-	assert(a+b==c)
+	       assert(a+b==c)
       }
 
       test("a-b==d"){
-	assert(a-b==d)
+	       assert(a-b==d)
       }
 
       test("minus one"){
-      	assert(-one==minusOne)
+      	 assert(-one==minusOne)
       }
 
       test("i*j==k"){
-	assert(i*j==k)
+	       assert(i*j==k)
       }
 
       test("j*i==-k"){
-	assert(j*i== -k)
+	       assert(j*i== -k)
       }
 
       test("j*k==i"){
-	assert(j*k==i)
+	       assert(j*k==i)
       }
 
       test("k*j==-i"){
-	assert(k*j== -i)
+	       assert(k*j== -i)
       }
 
       test("k*i==j"){
-	assert(k*i== j)
+	       assert(k*i== j)
       }
 
       test("i*k==-j"){
-	assert(i*k== -j)
+	       assert(i*k== -j)
       }
 
       test("i*i==-1"){
-      	assert(i*i== -one)
+      	 assert(i*i== -one)
       }
 
       test("j*j==-1"){
-      	assert(j*j== -one)
+      	 assert(j*j== -one)
       }
 
       test("k*k==-1"){
-      	assert(k*k== -one)
+      	 assert(k*k== -one)
       }
 
       test("i*j*k==-1"){
-      	assert(i*j*k== -one)
+      	 assert(i*j*k== -one)
       }
 
       test("k*j*i==1"){
-      	assert(k*j*i== one)
+      	 assert(k*j*i== one)
       }
 
       test("a.conjugate"){
-        assert(a.conjugate==aConjugate)
+         assert(a.conjugate==aConjugate)
       }
 
       test("a.~"){
-        assert(~a==aConjugate)
+         assert(~a==aConjugate)
       }
 
       test("b.conjugate"){
-        assert(b.conjugate==bConjugate)
+         assert(b.conjugate==bConjugate)
       }
 
       test("b.~"){
-        assert(~b==bConjugate)
+         assert(~b==bConjugate)
       }
 
       test("c.conjugate"){
-        assert(c.conjugate==cConjugate)
+         assert(c.conjugate==cConjugate)
       }
 
       test("c.~"){
-        assert(~c==cConjugate)
+         assert(~c==cConjugate)
       }
 
       test("d.conjugate"){
-        assert(d.conjugate==dConjugate)
+         assert(d.conjugate==dConjugate)
       }
 
       test("d.~"){
-        assert(~d==dConjugate)
+         assert(~d==dConjugate)
       }
 
       test("zero.norm"){
-	assert(zero.norm==0)
+	       assert(zero.norm==0)
       }
 
       test("one.norm"){
-	assert(one.norm==1)
+	       assert(one.norm==1)
       }
 
       test("one.reciprocal"){
-	assert(one.reciprocal==one)
+	       assert(one.reciprocal==one)
       }
 
       test("i.reciprocal"){
-	assert(i.reciprocal== -i)
+	       assert(i.reciprocal== -i)
       }
 
       test("j.reciprocal"){
-	assert(j.reciprocal== -j)
+	       assert(j.reciprocal== -j)
       }
 
       test("k.reciprocal"){
-	assert(k.reciprocal== -k)
+	       assert(k.reciprocal== -k)
       }
 
       test("i/i"){
-	assert(i/i== one)
+	       assert(i/i== one)
       }
 
       test("j/j"){
-	assert(j/j== one)
+	       assert(j/j== one)
       }
 
       test("k/k"){
-	assert(k/k== one)
+	       assert(k/k== one)
       }
 
       test("a.unit"){
-	assert(a.unit==aUnit)
+	       assert(a.unit==aUnit)
       }
-      
+
       test("b.unit"){
-	assert(b.unit==bUnit)
+	       assert(b.unit==bUnit)
       }
 
       test("c.unit"){
-	assert(c.unit==cUnit)
+	       assert(c.unit==cUnit)
       }
 
       test("d.unit"){
-	assert(d.unit==dUnit)
+	       assert(d.unit==dUnit)
       }
 
       test("zero.unit"){
-	assert(zero.unit==zero)
+	       assert(zero.unit==zero)
       }
 
       test("one.scalarMult(2)"){
-	assert(one.scalarMult(2)==two)
+	       assert(one.scalarMult(2)==two)
       }
 
       test("one.scalarMult(-1)"){
-	assert(one.scalarMult(-1)==minusOne)
+	       assert(one.scalarMult(-1)==minusOne)
       }
 
       test("zero.exp"){
-	assert(zero.exp==one)
+	       assert(zero.exp==one)
       }
 
       test("one.log"){
-	assert(one.ln==zero)
+	       assert(one.ln==zero)
+      }
+
+      test("u.withR"){
+         u.withR(1)
+         assert(u.r==1)
+      }
+
+      test("v.withR(1).withI(2)"){
+         v.withR(1)
+         .withI(2)
+         assert(v.r==1)
+         assert(v.i==2)
+      }
+
+      test("w.withR(1).withI(2).withJ(3)"){
+         w.withR(1)
+         .withI(2)
+         .withJ(3)
+         assert(w.r==1)
+         assert(w.i==2)
+         assert(w.j==3)
+      }
+
+      test("ww.withR(1).withI(2).withJ(3).withK(4)"){
+         ww.withR(1)
+         .withI(2)
+         .withJ(3)
+         .withK(4)
+         assert(ww.r==1)
+         assert(ww.i==2)
+         assert(ww.j==3)
+         assert(ww.k==4)
       }
 }
